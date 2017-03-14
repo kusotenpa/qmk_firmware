@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
  * |         |   !  |   @  |   |  |   {  |   }  |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |   #  |   $  |   `  |   (  |   )  |------|           |------| Down |   4  |   5  |   6  |      |        |
+ * |         |   #  |   $  |   &  |   (  |   )  |------|           |------| Down |   4  |   5  |   6  |      |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |         |   %  |   ^  |   ~  |   [  |   ]  |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // left hand
        RESET,   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,KC_EXLM,KC_AT,  KC_PIPE, KC_LCBR,KC_RCBR,KC_TRNS,
-       KC_TRNS,KC_HASH,KC_DLR, KC_GRV, KC_LPRN,KC_RPRN,
+       KC_TRNS,KC_HASH,KC_DLR, KC_AMPR, KC_LPRN,KC_RPRN,
        KC_TRNS,KC_PERC,KC_CIRC,KC_TILD,KC_LBRC,KC_RBRC,KC_TRNS,
           EPRM,KC_TRNS,KC_TRNS,KC_PPLS,KC_EQL,
                                        RGB_MOD,KC_TRNS,
