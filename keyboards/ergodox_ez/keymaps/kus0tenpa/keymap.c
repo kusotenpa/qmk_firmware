@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |  [{  |           |  ]}  |   Y  |   U  |   I  |   O  |   P  |   BS   |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  | L/L2 |; / L1| Enter  |
+ * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  | Enter  |
  * |--------+------+------+------+------+------| Tab  |           | '"   |------+------+------+------+------+--------|
  * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| Down   |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
  *                                 |Space | EISU |------|       |------|  KANA  | Space|
- *                                 |      |      | End  |       | PgDn |        |      |
+ *                                 |      |      | End  |       | PgDn |        | / L1 |
  *                                 `--------------------'       `----------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -48,13 +48,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                KC_SPC,KC_LANG2,KC_END,
         // right hand
              KC_RGHT,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_DEL,
-             KC_RBRC,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSPC,
-                          KC_H,   KC_J,  KC_K,   KC_L, LT(SYMB, KC_SCLN), KC_ENT,
+             KC_RBRC,     KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSPC,
+                          KC_H,   KC_J,  KC_K,   KC_L,  KC_SCLN,           KC_ENT,
              KC_QUOT,     KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_DOWN,
                                   KC_MINS, KC_ESC, KC_NO,   KC_NO,         KC_PPLS,
              KC_UP, KC_DOWN,
              KC_PGUP,
-             KC_PGDN, KC_LANG1, KC_SPC
+             KC_PGDN, KC_LANG1, LT(SYMB, KC_SPC)
     ),
 /* Keymap 1: Symbol Layer
  *
