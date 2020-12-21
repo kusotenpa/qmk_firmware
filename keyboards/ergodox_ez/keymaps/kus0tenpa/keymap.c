@@ -1,11 +1,11 @@
-#include "ergodox.h"
+#include "ergodox_ez.h"
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
 
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
-#define MDIA 2 // media keys
+#define APEX 2 // media keys
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
-[BASE] = KEYMAP(  // layer 0 : default
+[BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_LEFT,
         KC_TAB,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_LBRC,
@@ -49,14 +49,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                               KC_HOME,
                                                KC_SPC,KC_LANG2,KC_END,
         // right hand
-             KC_RGHT,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_NO,
-             KC_RBRC,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSPC,
-                          KC_H,   KC_J,  KC_K,   KC_L, LT(SYMB, KC_SCLN), KC_ENT,
-             KC_QUOT,     KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_DOWN,
-                                  KC_MINS, KC_ESC, KC_NO,   KC_NO,         KC_PPLS,
-             KC_UP, KC_DOWN,
-             KC_PGUP,
-             KC_PGDN, KC_LANG1, KC_SPC
+        KC_RGHT,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             TG(2),
+        KC_RBRC,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSPC,
+                    KC_H,   LT(SYMB, KC_J),  KC_K,   KC_L, KC_SCLN, KC_ENT,
+        KC_QUOT,     KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_DOWN,
+                            KC_MINS, KC_ESC, KC_NO,   KC_NO,         KC_PPLS,
+        KC_UP, KC_DOWN,
+        KC_PGUP,
+        KC_PGDN, KC_LANG1, KC_SPC
     ),
 /* Keymap 1: Symbol Layer
  *
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // SYMBOLS
-[SYMB] = KEYMAP(
+[SYMB] = LAYOUT_ergodox(
        // left hand
        RESET,   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,KC_EXLM,KC_AT,  KC_PIPE, KC_LCBR,KC_RCBR,KC_TRNS,
@@ -122,25 +122,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // MEDIA AND MOUSE
-[MDIA] = KEYMAP(
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_1, KC_2, KC_3, KC_4, KC_5, KC_TRNS,
-       KC_TRNS, KC_6, KC_7, KC_8, KC_9, KC_0,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,
-                                           KC_TRNS, KC_TRNS,
-                                                    KC_TRNS,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
-    // right hand
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS,
-                          KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_WBAK
-),
+[APEX] = LAYOUT_ergodox(
+       // left hand
+        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_LEFT,
+        KC_TAB,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_LBRC,
+        KC_LCTRL,     KC_A,           KC_S,   KC_D,   KC_F,   KC_G,
+        KC_LSFT,       KC_Z,           KC_X,   KC_C,   KC_V,   KC_B,   KC_TAB,
+        KC_LALT         ,KC_NO,      KC_BSLS,  KC_GRV, KC_LGUI,
+                                                        KC_NO,  KC_NO,
+                                                              KC_HOME,
+                                               KC_SPC,KC_O,KC_END,
+        // right hand
+        KC_RGHT,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_TRNS,
+        KC_RBRC,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSPC,
+                      KC_H,   LT(SYMB, KC_J),  KC_K,   KC_L, KC_SCLN, KC_ENT,
+        KC_QUOT,     KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_DOWN,
+                              KC_MINS, KC_ESC, KC_NO,   KC_NO,         KC_PPLS,
+        KC_UP, KC_DOWN,
+        KC_PGUP,
+        KC_PGDN, KC_LANG1, KC_SPC
+    ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -213,7 +214,7 @@ void matrix_scan_user(void) {
             ergodox_right_led_1_on();
             break;
         case 2:
-            ergodox_right_led_2_on();
+            ergodox_right_led_3_on();
             break;
         default:
             // none
